@@ -1,4 +1,5 @@
 import 'package:crypto_x/core/routing/routes.dart';
+import 'package:crypto_x/features/auth/presentation/screens/login_screen.dart';
 import 'package:crypto_x/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:crypto_x/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,10 @@ class AppRouter {
 
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
+
+      case Routes.loginScreen:
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
+
       default:
         return null;
     }

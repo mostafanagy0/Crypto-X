@@ -6,7 +6,5 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() async {
   // configuration production environment
   await ScreenUtil.ensureScreenSize();
-  runApp( Crypto_X_App(
-    appRouter: AppRouter(),
-  ));
+  runApp(Crypto_X_App(appRouter: AppRouter()));
 }
