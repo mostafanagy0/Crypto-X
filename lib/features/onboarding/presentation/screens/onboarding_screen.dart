@@ -1,8 +1,11 @@
+import 'package:crypto_x/core/helpers/extensions.dart';
 import 'package:crypto_x/core/helpers/spacing.dart';
+import 'package:crypto_x/core/routing/routes.dart';
+import 'package:crypto_x/core/theming/styles.dart';
 import 'package:crypto_x/features/onboarding/data/onboarding_data.dart';
-import 'package:crypto_x/features/onboarding/presentation/screens/widgets/custom_button.dart';
+import 'package:crypto_x/core/widgets/custom_button.dart';
 import 'package:crypto_x/features/onboarding/presentation/screens/widgets/onboarding_next_button.dart';
-import 'package:crypto_x/features/onboarding/presentation/screens/widgets/onboarding_skip_button.dart';
+import 'package:crypto_x/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/onboarding_page_item.dart';
@@ -25,18 +28,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: Column(
         children: [
           if (index == 1 || index == 2)
-            OnboardingSkipButton(
-              onSkip: () {
-                controller.animateToPage(
-                  onboardingData.length - 1,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.ease,
-                );
-              },
+            Padding(
+              padding: EdgeInsets.only(top: 50.h, right: 20.w),
+              child: CustomTextButton(
+                text: "Skip",
+                style: TextStyles.font20Regular,
+                alignment: Alignment.topRight,
+                onClick: () {
+                  controller.animateToPage(
+                    onboardingData.length - 1,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.ease,
+                  );
+                },
+              ),
             )
           else
             verticalSpace(131),
-
           Expanded(
             child: PageView.builder(
               controller: controller,
@@ -56,9 +64,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 40.h),
               child: Column(
                 children: [
-                  CustomButton(text: 'Login', onPressed: () {}),
+                  CustomButton(
+                    text: 'Login',
+                    onPressed: () => context.pushNamed(Routes.loginScreen),
+                  ),
                   verticalSpace(16),
-                  // زرار Register
                   CustomButton(
                     text: 'Register',
                     onPressed: () {},
