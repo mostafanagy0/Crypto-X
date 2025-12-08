@@ -9,16 +9,21 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: Colors.black,
   );
+  static TextStyle font26Bold = TextStyle(
+    fontSize: 26.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.kPrimaryColor,
+  );
+  static TextStyle font26SemiBold = TextStyle(
+    fontSize: 26.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsManager.kPrimaryColor,
+  );
   static TextStyle font20Regular = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.kPrimaryColor,
     fontFamily: 'Poppins',
-  );
-  static TextStyle font26Bold = TextStyle(
-    fontSize: 26.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: ColorsManager.kPrimaryColor,
   );
   static TextStyle font18Bold = TextStyle(
     fontSize: 18.sp,
@@ -28,6 +33,11 @@ class TextStyles {
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.medium,
     color: ColorsManager.kGrayColor,
+  );
+  static TextStyle font18Regular = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.kBlackColor,
   );
   static TextStyle font14Medium = TextStyle(
     fontSize: 14.sp,

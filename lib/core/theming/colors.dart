@@ -7,4 +7,5 @@ class ColorsManager {
   static const kNeutralColor = Color(0xFF494D58);
   static const kDividerColor = Color(0xFFCBD5E1);
   static const kGrayColor = Color(0xFF8C8C8C);
+  static const kBlackColor = Color(0xFF18191F);
 }

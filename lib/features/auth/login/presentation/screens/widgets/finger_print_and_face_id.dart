@@ -1,3 +1,5 @@
+import 'package:crypto_x/core/helpers/extensions.dart';
+import 'package:crypto_x/core/routing/routes.dart';
 import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,11 +16,15 @@ class FingerPrintAndFaceId extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(Routes.loginWithFingerPrintScreen);
+            },
             child: SvgPicture.asset(AppSvgAssets.fingerPrint),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(Routes.loginWithFaceIdScreen);
+            },
             child: SvgPicture.asset(AppSvgAssets.faceId),
           ),
         ],
