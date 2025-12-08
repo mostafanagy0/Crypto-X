@@ -1,6 +1,6 @@
 import 'package:crypto_x/core/helpers/spacing.dart';
 import 'package:crypto_x/core/theming/app_assets.dart';
-import 'package:crypto_x/features/auth/presentation/screens/widgets/custom_text_field.dart';
+import 'package:crypto_x/features/auth/login/presentation/screens/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

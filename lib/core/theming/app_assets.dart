@@ -12,9 +12,16 @@ class AppSvgAssets {
   static const String lockIcon = 'assets/images/auth/lock.svg';
   static const String fingerPrint = 'assets/images/auth/fingerprint.svg';
   static const String faceId = 'assets/images/auth/Face ID.svg';
+  static const String faceIcon = 'assets/images/auth/face_icon.svg';
+  static const String right = 'assets/images/auth/Right.svg';
 }
 
 class AppPngAssets {
+  //Auth Screens
+
+  // Login Screen
+  static const String faceIdBg = 'assets/images/auth/face_id_bg.jpg';
+
   // Onboarding Screens
   static const String onBoarding1 = 'assets/images/onboarding/onboarding1.png';
   static const String onBoarding2 = 'assets/images/onboarding/onboarding2.png';
