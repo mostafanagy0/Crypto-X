@@ -1,3 +1,7 @@
 {
-    "cmake.sourceDirectory": "C:/Projects/Mentorship/Crypto-X/linux"
+    "cmake.sourceDirectory": "C:/Projects/Mentorship/Crypto-X/linux",
+    "flutterTools.displayGetxContextMenu": false,
+    "flutterTools.displayMobxContextMenu": false,
+    "flutterTools.displayRiverpodContextMenu": false,
+    "flutterTools.displayModularContextMenu": false
 }
