@@ -5,20 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class VerificationSuccessWidget extends StatelessWidget {
-  const VerificationSuccessWidget({super.key});
+class ScanningCompleteWidget extends StatelessWidget {
+  const ScanningCompleteWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SvgPicture.asset(AppSvgAssets.right, width: 125.w, height: 125.h),
-        verticalSpace(104),
-        Text("You’re verified", style: TextStyles.font26SemiBold),
-        verticalSpace(22),
+        verticalSpace(106),
+        Text("Your scanning is complete", style: TextStyles.font26SemiBold),
+        verticalSpace(46),
         Text(
-          "You have been verified your\ninformation completely. Let’s make\ntransactions!",
-          style: TextStyles.font18Regular,
+          "you will be able to sign in by using fingerprint",
+          style: TextStyles.font16Regular,
           textAlign: TextAlign.center,
         ),
       ],
