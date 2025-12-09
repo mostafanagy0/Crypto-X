@@ -5,8 +5,8 @@ import 'package:crypto_x/core/theming/styles.dart';
 import 'package:crypto_x/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 
-class SignUpPrompt extends StatelessWidget {
-  const SignUpPrompt({super.key});
+class LoginPrompt extends StatelessWidget {
+  const LoginPrompt({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +15,13 @@ class SignUpPrompt extends StatelessWidget {
       children: [
         Text("Don't have an account? ", style: TextStyles.font18Medium),
         CustomTextButton(
-          text: "Sign Up",
+          text: "Login",
           style: TextStyles.font18Medium.copyWith(
             color: ColorsManager.kPrimaryColor,
           ),
           alignment: Alignment.center,
           onClick: () {
-            context.pushNamed(Routes.signUpScreen);
+            context.pushNamed(Routes.loginScreen);
           },
         ),
       ],

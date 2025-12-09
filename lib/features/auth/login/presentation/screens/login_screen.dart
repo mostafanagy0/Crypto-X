@@ -3,7 +3,7 @@ import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
 import 'package:crypto_x/core/widgets/custom_button.dart';
 import 'package:crypto_x/core/widgets/custom_text_button.dart';
-import 'package:crypto_x/features/auth/login/presentation/screens/widgets/baby_blue_circle_bg.dart';
+import 'package:crypto_x/core/widgets/baby_blue_circle_bg.dart';
 import 'package:crypto_x/features/auth/login/presentation/screens/widgets/finger_print_and_face_id.dart';
 import 'package:crypto_x/features/auth/login/presentation/screens/widgets/login_screen_header.dart';
 import 'package:crypto_x/features/auth/login/presentation/screens/widgets/login_text_fields.dart';
@@ -50,7 +50,12 @@ class LoginScreen extends StatelessWidget {
                           ],
                         ),
                         verticalSpace(30),
-                        CustomButton(text: "Login", onPressed: () {}),
+                        CustomButton(
+                          text: "Login",
+                          onPressed: () {},
+                          width: 342,
+                          height: 50,
+                        ),
                         verticalSpace(37),
                         OrLoginWithDivider(),
                         verticalSpace(15),

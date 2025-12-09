@@ -19,7 +19,7 @@ class Crypto_X_App extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             fontFamily: "Lato",
-            scaffoldBackgroundColor: ColorsManager.kWhiteColor,
+            scaffoldBackgroundColor: ColorsManager.kBackgroundColor,
           ),
           initialRoute: Routes.splashScreen,
           onGenerateRoute: appRouter.generateRoute,

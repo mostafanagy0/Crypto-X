@@ -14,6 +14,11 @@ class AppSvgAssets {
   static const String faceId = 'assets/images/auth/Face ID.svg';
   static const String faceIcon = 'assets/images/auth/face_icon.svg';
   static const String right = 'assets/images/auth/Right.svg';
+
+  // Sign Up Screen
+  static const String personIcon = 'assets/images/auth/person.svg';
+  static const String phoneIcon = 'assets/images/auth/phone.svg';
+  static const String faceIdDone = 'assets/images/auth/face_id_done.svg';
 }
 
 class AppPngAssets {

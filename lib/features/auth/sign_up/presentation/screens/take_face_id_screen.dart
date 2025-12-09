@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class LogiWithFaceIdScreen extends StatelessWidget {
-  const LogiWithFaceIdScreen({super.key});
+class TakeFaceIdScreen extends StatelessWidget {
+  const TakeFaceIdScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,17 @@ class LogiWithFaceIdScreen extends StatelessWidget {
           Center(
             child: Column(
               children: [
-                verticalSpace(327),
+                verticalSpace(119),
+                Text(
+                  "Place your face ID in face\nscanner until the icon completely",
+                  style: TextStyles.font18Medium.copyWith(
+                    color: ColorsManager.kWhiteColor,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                verticalSpace(164),
                 GestureDetector(
-                  onTap: () {
-                    context.pushNamed(Routes.verifyAccountScreen);
-                  },
+                  onTap: () => context.pushNamed(Routes.faceIdScanningCompleteScreen),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(28.r),
                     child: SizedBox(
@@ -43,9 +49,9 @@ class LogiWithFaceIdScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                verticalSpace(128),
+                verticalSpace(186),
                 Text(
-                  "Please wait until your scanning is\ncomplete",
+                  "Once your scanning is complete, you will\nbe able to sign in by using face ID",
                   style: TextStyles.font18Medium.copyWith(
                     color: ColorsManager.kWhiteColor,
                   ),

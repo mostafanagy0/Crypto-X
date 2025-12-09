@@ -39,6 +39,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.kBlackColor,
   );
+  static TextStyle font16Regular = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.kBlackColor,
+  );
   static TextStyle font14Medium = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.medium,
