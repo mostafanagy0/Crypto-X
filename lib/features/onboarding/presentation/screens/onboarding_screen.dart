@@ -67,11 +67,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   CustomButton(
                     text: 'Login',
                     onPressed: () => context.pushNamed(Routes.loginScreen),
+                    width: 342,
+                    height: 50,
                   ),
                   verticalSpace(16),
                   CustomButton(
                     text: 'Register',
-                    onPressed: () {},
+                    onPressed: () => context.pushNamed(Routes.signUpScreen),
+                    width: 342,
+                    height: 50,
                     isOutlined: true,
                   ),
                 ],

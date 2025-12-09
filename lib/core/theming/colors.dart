@@ -2,6 +2,7 @@ import 'dart:ui';
 
 class ColorsManager {
   static const kWhiteColor = Color(0xFFFFFFFF);
+  static const kBackgroundColor = Color(0xFFF5F8FE);
   static const kPrimaryColor = Color(0xFF1D3A70);
   static const kBlueGrayColor = Color(0xFF2F4159);
   static const kNeutralColor = Color(0xFF494D58);

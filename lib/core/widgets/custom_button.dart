@@ -7,6 +7,8 @@ class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final bool isOutlined;
+  final num width;
+  final num height;
   final Color? backgroundColor;
   final Color? textColor;
   final Color? borderColor;
@@ -19,13 +21,15 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor,
     this.textColor,
     this.borderColor,
+    required this.width,
+    required this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 343.w,
-      height: 55.h,
+      width: width.w,
+      height: height.h,
       child: isOutlined
           ? OutlinedButton(
               onPressed: onPressed,
