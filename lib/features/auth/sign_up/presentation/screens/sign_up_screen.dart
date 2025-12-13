@@ -10,7 +10,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+   SignUpScreen({super.key});
+
+  final _formKey = GlobalKey<FormState>();
+
+  final firstNameController = TextEditingController();
+  final lastNameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  final phoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,36 +29,52 @@ class SignUpScreen extends StatelessWidget {
       },
       child: Scaffold(
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  BabyBlueCircleBg(),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 17.h),
-                    child: Column(
-                      children: [
-                        const SignUpScreenHeader(),
-                        verticalSpace(56),
-                        const SignUpTextFields(),
-                        verticalSpace(25),
-                        CustomButton(
-                          text: "Register",
-                          onPressed: () =>
-                              context.pushNamed(Routes.setFingerPrintScreen),
-
-                          width: 342,
-                          height: 50,
-                        ),
-                        verticalSpace(25),
-                        const LoginPrompt(),
-                        verticalSpace(25),
-                      ],
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    BabyBlueCircleBg(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 17.h),
+                      child: Column(
+                        children: [
+                          const SignUpScreenHeader(),
+                          verticalSpace(56),
+                           SignUpTextFields(
+                            firstNameController: firstNameController,
+                            lastNameController: lastNameController,
+                            emailController: emailController,
+                            passwordController: passwordController,
+                            confirmPasswordController:
+                                confirmPasswordController,
+                            phoneController: phoneController,
+                          ),
+                          verticalSpace(25),
+                          CustomButton(
+                            text: "Register",
+                            onPressed: () {
+                               if (_formKey.currentState!.validate()) {
+                                context.pushNamed(
+                                  Routes.setFingerPrintScreen,
+                                );
+                              }
+                            }
+            ,
+                            width: 342,
+                            height: 50,
+                          ),
+                          verticalSpace(25),
+                          const LoginPrompt(),
+                          verticalSpace(25),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

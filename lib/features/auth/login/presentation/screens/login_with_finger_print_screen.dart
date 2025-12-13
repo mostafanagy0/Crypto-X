@@ -1,6 +1,4 @@
-import 'package:crypto_x/core/helpers/extensions.dart';
 import 'package:crypto_x/core/helpers/spacing.dart';
-import 'package:crypto_x/core/routing/routes.dart';
 import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:crypto_x/core/widgets/baby_blue_circle_bg.dart';
 import 'package:crypto_x/features/auth/login/presentation/screens/widgets/login_with_finger_print_screen_header.dart';
@@ -22,15 +20,10 @@ class LoginWithFingerPrintScreen extends StatelessWidget {
             children: [
               LoginWithFingerPrintScreenHeader(),
               verticalSpace(157),
-              GestureDetector(
-                onTap: () {
-                  context.pushNamed(Routes.verifyAccountScreen);
-                },
-                child: SvgPicture.asset(
-                  AppSvgAssets.fingerPrint,
-                  width: 108.w,
-                  height: 124.24.h,
-                ),
+              SvgPicture.asset(
+                AppSvgAssets.fingerPrint,
+                width: 108.w,
+                height: 124.24.h,
               ),
               verticalSpace(148),
               TouchIdSensorPrompt(),

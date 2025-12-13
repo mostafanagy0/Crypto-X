@@ -23,7 +23,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
 
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return MaterialPageRoute(builder: (_) =>  LoginScreen());
 
       case Routes.loginWithFingerPrintScreen:
         return MaterialPageRoute(
@@ -34,7 +34,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const LogiWithFaceIdScreen());
 
       case Routes.signUpScreen:
-        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+        return MaterialPageRoute(builder: (_) =>  SignUpScreen());
 
       case Routes.setFingerPrintScreen:
         return MaterialPageRoute(builder: (_) => const SetFingerPrintScreen());
@@ -52,9 +52,11 @@ class AppRouter {
 
       case Routes.takeFaceIdScreen:
         return MaterialPageRoute(builder: (_) => const TakeFaceIdScreen());
-        
+
       case Routes.faceIdScanningCompleteScreen:
-        return MaterialPageRoute(builder: (_) => const FaceIdScanningCompleteScreen());
+        return MaterialPageRoute(
+          builder: (_) => const FaceIdScanningCompleteScreen(),
+        );
 
       default:
         return null;
