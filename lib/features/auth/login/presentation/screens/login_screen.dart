@@ -14,7 +14,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+   LoginScreen({super.key});
+   final _formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,52 +26,62 @@ class LoginScreen extends StatelessWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  BabyBlueCircleBg(),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 17.w),
-                    child: Column(
-                      children: [
-                        LoginScreenHeader(),
-                        verticalSpace(100),
-                        LoginTextFields(),
-                        verticalSpace(16),
-                        Row(
-                          children: [
-                            RememberMeCheckBox(),
-                            const Spacer(),
-                            CustomTextButton(
-                              text: "Forgot Password?",
-                              style: TextStyles.font12SemiBold.copyWith(
-                                color: ColorsManager.kPrimaryColor,
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    BabyBlueCircleBg(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 17.w),
+                      child: Column(
+                        children: [
+                          LoginScreenHeader(),
+                          verticalSpace(100),
+                          LoginTextFields(
+                             emailController: emailController,
+                            passwordController: passwordController,
+                          ),
+                          verticalSpace(16),
+                          Row(
+                            children: [
+                              RememberMeCheckBox(),
+                              const Spacer(),
+                              CustomTextButton(
+                                text: "Forgot Password?",
+                                style: TextStyles.font12SemiBold.copyWith(
+                                  color: ColorsManager.kPrimaryColor,
+                                ),
+                                alignment: Alignment.center,
+                                onClick: () {},
                               ),
-                              alignment: Alignment.center,
-                              onClick: () {},
-                            ),
-                          ],
-                        ),
-                        verticalSpace(30),
-                        CustomButton(
-                          text: "Login",
-                          onPressed: () {},
-                          width: 342,
-                          height: 50,
-                        ),
-                        verticalSpace(37),
-                        OrLoginWithDivider(),
-                        verticalSpace(15),
-                        FingerPrintAndFaceId(),
-                        verticalSpace(15),
-                        SignUpPrompt(),
-                      ],
+                            ],
+                          ),
+                          verticalSpace(30),
+                          CustomButton(
+                            text: "Login",
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                // Call Cubit / API here
+                              }
+                            },
+                            width: 342,
+                            height: 50,
+                          ),
+                          verticalSpace(37),
+                          OrLoginWithDivider(),
+                          verticalSpace(15),
+                          FingerPrintAndFaceId(),
+                          verticalSpace(15),
+                          SignUpPrompt(),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -11,5 +11,6 @@ class Routes {
   static const String scanningCompleteScreen = '/scanningCompleteScreen';
   static const String setFaceIdScreen = '/setFaceIdScreen';
   static const String takeFaceIdScreen = '/takeFaceIdScreen';
-  static const String faceIdScanningCompleteScreen = '/faceIdScanningCompleteScreen';
+  static const String faceIdScanningCompleteScreen =
+      '/faceIdScanningCompleteScreen';
 }

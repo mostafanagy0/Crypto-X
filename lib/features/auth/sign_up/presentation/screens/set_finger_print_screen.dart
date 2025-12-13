@@ -41,7 +41,8 @@ class SetFingerPrintScreen extends StatelessWidget {
                   children: [
                     CustomButton(
                       text: "Skip",
-                      onPressed: () => context.pushNamed(Routes.setFaceIdScreen),
+                      onPressed: () =>
+                          context.pushNamed(Routes.setFaceIdScreen),
                       isOutlined: true,
                       width: 162,
                       height: 50,
