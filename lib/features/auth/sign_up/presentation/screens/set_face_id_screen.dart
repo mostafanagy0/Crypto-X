@@ -51,7 +51,8 @@ class SetFaceIdScreen extends StatelessWidget {
                     ),
                     CustomButton(
                       text: "Continue",
-                      onPressed: () => context.pushNamed(Routes.takeFaceIdScreen),
+                      onPressed: () =>
+                          context.pushNamed(Routes.takeFaceIdScreen),
                       width: 162,
                       height: 50,
                     ),

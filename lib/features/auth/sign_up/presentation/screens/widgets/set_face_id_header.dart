@@ -9,21 +9,16 @@ class SetFaceIdHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-         verticalSpace(147),
-                Center(
-                  child: Text(
-                    "Set Your Face ID",
-                    style: TextStyles.font26Bold,
-                  ),
-                ),
-                verticalSpace(33),
-                Center(
-                  child: Text(
-                    "Add your face ID to make your account\nmore secure.",
-                    style: TextStyles.font18Bold,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+        verticalSpace(147),
+        Center(child: Text("Set Your Face ID", style: TextStyles.font26Bold)),
+        verticalSpace(33),
+        Center(
+          child: Text(
+            "Add your face ID to make your account\nmore secure.",
+            style: TextStyles.font18Bold,
+            textAlign: TextAlign.center,
+          ),
+        ),
       ],
     );
   }

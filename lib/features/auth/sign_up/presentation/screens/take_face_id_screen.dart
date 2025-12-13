@@ -36,7 +36,8 @@ class TakeFaceIdScreen extends StatelessWidget {
                 ),
                 verticalSpace(164),
                 GestureDetector(
-                  onTap: () => context.pushNamed(Routes.faceIdScanningCompleteScreen),
+                  onTap: () =>
+                      context.pushNamed(Routes.faceIdScanningCompleteScreen),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(28.r),
                     child: SizedBox(

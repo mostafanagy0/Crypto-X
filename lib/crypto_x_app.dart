@@ -18,6 +18,11 @@ class Crypto_X_App extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
+            textSelectionTheme: TextSelectionThemeData(
+              cursorColor: ColorsManager.kPrimaryColor,
+              selectionColor: ColorsManager.kPrimaryColor.withValues(alpha: 0.4),
+              selectionHandleColor: ColorsManager.kPrimaryColor,
+            ),
             fontFamily: "Lato",
             scaffoldBackgroundColor: ColorsManager.kBackgroundColor,
           ),

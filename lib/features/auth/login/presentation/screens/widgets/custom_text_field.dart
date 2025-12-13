@@ -5,31 +5,35 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class CustomTextFormField extends StatelessWidget {
-  CustomTextFormField({
+  const CustomTextFormField({
     super.key,
+    required this.controller,
     this.obscureText = false,
     this.hintText,
     this.onChanged,
+    this.validator,
     this.suffixIcon,
     this.prefixIcon,
+    this.keyboardType,
   });
 
-  Function(String)? onChanged;
-  String? hintText;
-  bool obscureText;
-  IconButton? suffixIcon;
-  Widget? prefixIcon;
+  final TextEditingController controller;
+  final bool obscureText;
+  final String? hintText;
+  final ValueChanged<String>? onChanged;
+  final String? Function(String?)? validator;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
+  final TextInputType? keyboardType;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       obscureText: obscureText,
-      validator: (data) {
-        if (data!.isEmpty) {
-          return 'Field is required';
-        }
-        return null;
-      },
+      validator: validator,
       onChanged: onChanged,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
@@ -37,18 +41,20 @@ class CustomTextFormField extends StatelessWidget {
           minWidth: 40,
           minHeight: 40,
         ),
-
-        contentPadding: EdgeInsets.only(top: 8.h, bottom: 8.h, left: 12.w),
-        border: buildBorder(),
-        focusedBorder: buildBorder(),
-        enabledBorder: buildBorder(),
+        contentPadding: EdgeInsets.only(
+          top: 8.h,
+          bottom: 8.h,
+          left: 12.w,
+        ),
+        border: _buildBorder(),
+        focusedBorder: _buildBorder(),
+        enabledBorder: _buildBorder(),
         hintText: hintText,
         hintStyle: TextStyles.font14Medium,
       ),
     );
   }
-
-  OutlineInputBorder buildBorder() {
+  OutlineInputBorder _buildBorder() {
     return OutlineInputBorder(
       borderSide: BorderSide(color: ColorsManager.kPrimaryColor),
       borderRadius: BorderRadius.circular(10.r),
