@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "986815568456",
+    "project_id": "crypto-x-709e4",
+    "storage_bucket": "crypto-x-709e4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986815568456:android:7c3f3c1f0f61893306967d",
+        "android_client_info": {
+          "package_name": "com.example.crypto_x"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJFEKdQLD_2qxgxtGjaXHVFoxEPX2vuBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986815568456:android:e8172e60f93c08f206967d",
+        "android_client_info": {
+          "package_name": "com.example.crypto_x.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJFEKdQLD_2qxgxtGjaXHVFoxEPX2vuBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
