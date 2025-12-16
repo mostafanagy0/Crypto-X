@@ -59,6 +59,9 @@ dependencies:
   firebase_core: ^4.2.1
   #Flutter plugin for Firebase Auth, enabling authentication using passwords, phone numbers and identity providers like Google, Facebook and Twitter.
   firebase_auth: ^6.1.2
+  equatable: ^2.0.7
+  google_fonts: ^6.3.3
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_lints: ^6.0.0
