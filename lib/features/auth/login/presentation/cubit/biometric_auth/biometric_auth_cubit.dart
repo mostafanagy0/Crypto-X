@@ -3,14 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:local_auth/local_auth.dart';
-part 'auth_state.dart';
-part 'auth_cubit.freezed.dart';
+part 'biometric_auth_state.dart';
+part 'biometric_auth_cubit.freezed.dart';
 
-class AuthCubit extends Cubit<AuthState> {
+class BiometricAuthCubit extends Cubit<BiometricAuthState> {
   final LocalAuthentication auth;
-  AuthCubit(this.auth) : super(AuthState.initial());
+  BiometricAuthCubit(this.auth) : super(BiometricAuthState.initial());
   Future<void> biometricSetup() async {
-    emit(const AuthState.loading());
+    emit(const BiometricAuthState.loading());
     try {
       // Check device support
       if (!await auth.isDeviceSupported()) {
@@ -20,7 +20,7 @@ class AuthCubit extends Cubit<AuthState> {
           backgroundColor: Colors.red,
           fontSize: 16,
         );
-        emit(const AuthState.failure(message: message));
+        emit(const BiometricAuthState.failure(message: message));
         return;
       }
       // Check available biometrics
@@ -32,7 +32,7 @@ class AuthCubit extends Cubit<AuthState> {
           backgroundColor: Colors.red,
           fontSize: 16,
         );
-        emit(const AuthState.failure(message: message));
+        emit(const BiometricAuthState.failure(message: message));
         return;
       }
       // Authenticate
@@ -41,7 +41,7 @@ class AuthCubit extends Cubit<AuthState> {
         biometricOnly: true,
       );
       if (didAuthenticate) {
-        emit(const AuthState.success());
+        emit(const BiometricAuthState.success());
       } else {
         const message = "Authentication cancelled or failed";
         Fluttertoast.showToast(
@@ -49,7 +49,7 @@ class AuthCubit extends Cubit<AuthState> {
           backgroundColor: Colors.red,
           fontSize: 16,
         );
-        emit(const AuthState.failure(message: message));
+        emit(const BiometricAuthState.failure(message: message));
       }
     } catch (e) {
       final message = "Authentication Error";
@@ -58,7 +58,7 @@ class AuthCubit extends Cubit<AuthState> {
         backgroundColor: Colors.red,
         fontSize: 16,
       );
-      emit(AuthState.failure(message: message));
+      emit(BiometricAuthState.failure(message: message));
     }
   }
 }

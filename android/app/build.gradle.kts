@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
@@ -41,14 +41,15 @@ android {
     productFlavors {
         create("development") {
             dimension = "default"
+            applicationId = "com.example.crypto_x.dev"
             resValue(
                 type = "string",
                 name = "app_name",
                 value = "Crypto_X Development")
-                applicationIdSuffix = ".dev"
         }
         create("production") {
             dimension = "default"
+            applicationId = "com.example.crypto_x"
             resValue(
                 type = "string",
                 name = "app_name",
@@ -57,6 +58,12 @@ android {
         }
     }
 }
+
+dependencies {
+    implementation(platform("com.google.firebase:firebase-bom:34.7.0"))
+    implementation("com.google.firebase:firebase-analytics")
+}
+
 
 flutter {
     source = "../.."

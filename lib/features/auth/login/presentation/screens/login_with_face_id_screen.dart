@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class LogiWithFaceIdScreen extends StatelessWidget {
-  const LogiWithFaceIdScreen({super.key});
+class LoginWithFaceIdScreen extends StatelessWidget {
+  const LoginWithFaceIdScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
