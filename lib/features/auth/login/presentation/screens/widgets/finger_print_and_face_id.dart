@@ -1,7 +1,7 @@
 import 'package:crypto_x/core/helpers/extensions.dart';
 import 'package:crypto_x/core/routing/routes.dart';
 import 'package:crypto_x/core/theming/app_assets.dart';
-import 'package:crypto_x/features/auth/cubit/auth_cubit.dart';
+import 'package:crypto_x/features/auth/login/presentation/cubit/biometric_auth/biometric_auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,8 +15,8 @@ class FingerPrintAndFaceId extends StatelessWidget {
   Widget build(BuildContext context) {
     final auth = LocalAuthentication();
     return BlocProvider(
-      create: (context) => AuthCubit(auth),
-      child: BlocConsumer<AuthCubit, AuthState>(
+      create: (context) => BiometricAuthCubit(auth),
+      child: BlocConsumer<BiometricAuthCubit, BiometricAuthState>(
         listener: (context, state) {
           state.maybeWhen(
             success: () =>
@@ -34,14 +34,14 @@ class FingerPrintAndFaceId extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     context.pushNamed(Routes.loginWithFingerPrintScreen);
-                    context.read<AuthCubit>().biometricSetup();
+                    context.read<BiometricAuthCubit>().biometricSetup();
                   },
                   child: SvgPicture.asset(AppSvgAssets.fingerPrint),
                 ),
                 GestureDetector(
                   onTap: () {
                     context.pushNamed(Routes.loginWithFaceIdScreen);
-                    context.read<AuthCubit>().biometricSetup();
+                    context.read<BiometricAuthCubit>().biometricSetup();
                   },
                   child: SvgPicture.asset(AppSvgAssets.faceId),
                 ),

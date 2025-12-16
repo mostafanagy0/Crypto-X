@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'auth_cubit.dart';
+part of 'biometric_auth_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,7 +12,7 @@ part of 'auth_cubit.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$AuthState {
+mixin _$BiometricAuthState {
 
 
 
@@ -20,7 +20,7 @@ mixin _$AuthState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthState);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BiometricAuthState);
 }
 
 
@@ -29,20 +29,20 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AuthState()';
+  return 'BiometricAuthState()';
 }
 
 
 }
 
 /// @nodoc
-class $AuthStateCopyWith<$Res>  {
-$AuthStateCopyWith(AuthState _, $Res Function(AuthState) __);
+class $BiometricAuthStateCopyWith<$Res>  {
+$BiometricAuthStateCopyWith(BiometricAuthState _, $Res Function(BiometricAuthState) __);
 }
 
 
-/// Adds pattern-matching-related methods to [AuthState].
-extension AuthStatePatterns on AuthState {
+/// Adds pattern-matching-related methods to [BiometricAuthState].
+extension BiometricAuthStatePatterns on BiometricAuthState {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -192,7 +192,7 @@ return failure(_that.message);case _:
 /// @nodoc
 
 
-class _Initial implements AuthState {
+class _Initial implements BiometricAuthState {
   const _Initial();
   
 
@@ -212,7 +212,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AuthState.initial()';
+  return 'BiometricAuthState.initial()';
 }
 
 
@@ -224,7 +224,7 @@ String toString() {
 /// @nodoc
 
 
-class _Loading implements AuthState {
+class _Loading implements BiometricAuthState {
   const _Loading();
   
 
@@ -244,7 +244,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AuthState.loading()';
+  return 'BiometricAuthState.loading()';
 }
 
 
@@ -256,7 +256,7 @@ String toString() {
 /// @nodoc
 
 
-class _Success implements AuthState {
+class _Success implements BiometricAuthState {
   const _Success();
   
 
@@ -276,7 +276,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AuthState.success()';
+  return 'BiometricAuthState.success()';
 }
 
 
@@ -288,13 +288,13 @@ String toString() {
 /// @nodoc
 
 
-class _Failure implements AuthState {
+class _Failure implements BiometricAuthState {
   const _Failure({required this.message});
   
 
  final  String message;
 
-/// Create a copy of AuthState
+/// Create a copy of BiometricAuthState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
@@ -313,14 +313,14 @@ int get hashCode => Object.hash(runtimeType,message);
 
 @override
 String toString() {
-  return 'AuthState.failure(message: $message)';
+  return 'BiometricAuthState.failure(message: $message)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$FailureCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+abstract mixin class _$FailureCopyWith<$Res> implements $BiometricAuthStateCopyWith<$Res> {
   factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) _then) = __$FailureCopyWithImpl;
 @useResult
 $Res call({
@@ -339,7 +339,7 @@ class __$FailureCopyWithImpl<$Res>
   final _Failure _self;
   final $Res Function(_Failure) _then;
 
-/// Create a copy of AuthState
+/// Create a copy of BiometricAuthState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
   return _then(_Failure(
