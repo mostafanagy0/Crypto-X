@@ -22,6 +22,7 @@ class MarketScreen extends StatefulWidget {
 
 class _MarketScreenState extends State<MarketScreen> {
   final TextEditingController searchController = TextEditingController();
+  final FocusNode searchFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +38,7 @@ class _MarketScreenState extends State<MarketScreen> {
                 Text('Crypto Market', style: TextStyles.font24BoldPrimaryBlue),
                 verticalSpace(16),
                 CustomTextFormField(
+                  focusNode: searchFocusNode,
                   onEditingComplete: () {
                     final query = searchController.text.trim();
                     if (query.isNotEmpty) {
@@ -44,11 +46,15 @@ class _MarketScreenState extends State<MarketScreen> {
                         context,
                         Routes.searchResultsScreen,
                         arguments: query,
-                      );
+                      ).then((_) {
+                        searchController.clear();
+                        searchFocusNode.unfocus();
+                      });
                     }
+                    FocusScope.of(context).unfocus();
                   },
                   controller: searchController,
-
+                  action: TextInputAction.done,
                   hintText: 'Search',
                   hintStyle: TextStyles.font16RegularGreyF8FColor,
                   prefixIcon: Padding(
@@ -67,7 +73,10 @@ class _MarketScreenState extends State<MarketScreen> {
                           context,
                           Routes.searchResultsScreen,
                           arguments: query,
-                        );
+                        ).then((_) {
+                          searchController.clear();
+                          searchFocusNode.unfocus();
+                        });
                       }
                     },
                     icon: SvgPicture.asset(

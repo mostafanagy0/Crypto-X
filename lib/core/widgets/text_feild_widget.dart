@@ -1,4 +1,3 @@
-import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -68,6 +67,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       onChanged: (text) {
         widget.onChanged?.call(text);
       },
+
       onEditingComplete: widget.onEditingComplete,
       onTap: widget.onTap,
       obscureText: obscureText,

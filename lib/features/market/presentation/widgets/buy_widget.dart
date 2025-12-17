@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:crypto_x/core/helpers/spacing.dart';
 import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:crypto_x/core/theming/colors.dart';
@@ -144,7 +143,7 @@ class _BuyExchangeCardState extends State<BuyExchangeCard> {
                 controller: controller,
                 enabled: enable,
                 hintText: hint,
-
+                action: TextInputAction.done,
                 keyboardType: TextInputType.number,
                 onChanged: onChanged,
                 hintStyle: TextStyles.font20BoldPrimaryBlue,
