@@ -1,5 +1,7 @@
 import 'package:crypto_x/features/market/data/data_sourse/remote_data_source.dart';
 import 'package:crypto_x/features/market/data/repository/market_coin_repo.dart';
+import 'package:crypto_x/features/market/domain/usecases/coin_details_usecase.dart';
+import 'package:crypto_x/features/market/domain/usecases/market_chart_usecase.dart';
 import 'package:crypto_x/features/market/domain/usecases/market_coins_use_case.dart';
 import 'package:crypto_x/features/market/domain/usecases/search_coin_usecase.dart';
 import 'package:get_it/get_it.dart';
@@ -19,5 +21,11 @@ Future<void> setupGetIt() async {
   );
   getIt.registerLazySingleton<MarketCoinsRepository>(
     () => MarketCoinsRepository(getIt<MarketRemoteDataSource>()),
+  );
+  getIt.registerFactory<CoinDetailsUseCase>(
+    () => CoinDetailsUseCase(getIt<MarketCoinsRepository>()),
+  );
+  getIt.registerFactory<MarketChartUseCase>(
+    () => MarketChartUseCase(getIt<MarketCoinsRepository>()),
   );
 }

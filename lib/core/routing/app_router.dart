@@ -12,10 +12,16 @@ import 'package:crypto_x/features/auth/sign_up/presentation/screens/set_face_id_
 import 'package:crypto_x/features/auth/sign_up/presentation/screens/set_finger_print_screen.dart';
 import 'package:crypto_x/features/auth/sign_up/presentation/screens/sign_up_screen.dart';
 import 'package:crypto_x/features/auth/sign_up/presentation/screens/take_face_id_screen.dart';
+import 'package:crypto_x/features/market/domain/usecases/coin_details_usecase.dart';
+import 'package:crypto_x/features/market/domain/usecases/market_chart_usecase.dart';
 import 'package:crypto_x/features/market/domain/usecases/market_coins_use_case.dart';
 import 'package:crypto_x/features/market/domain/usecases/search_coin_usecase.dart';
+import 'package:crypto_x/features/market/presentation/cubit/coin_details/coin_details_cubit.dart';
 import 'package:crypto_x/features/market/presentation/cubit/market/market_cubit.dart';
+import 'package:crypto_x/features/market/presentation/cubit/market_chart/market_chart_cubit.dart';
 import 'package:crypto_x/features/market/presentation/cubit/search/search_cubit.dart';
+import 'package:crypto_x/features/market/presentation/screens/buy_crybto_screen.dart';
+import 'package:crypto_x/features/market/presentation/screens/coin_details_screen.dart';
 import 'package:crypto_x/features/market/presentation/screens/market_screen.dart';
 import 'package:crypto_x/features/market/presentation/screens/search_result_screen.dart';
 import 'package:crypto_x/features/onboarding/presentation/screens/onboarding_screen.dart';
@@ -99,6 +105,31 @@ class AppRouter {
             builder: (_) => BlocProvider(
               create: (context) => SearchCubit(getIt<SearchCoinsUseCase>()),
               child: SearchResultsScreen(query: query),
+            ),
+          );
+        }
+      case Routes.buyScreen:
+        return MaterialPageRoute(builder: (_) => const BuyScreen());
+      case Routes.coinDetailsScreen:
+        {
+          final id = settings.arguments as String;
+          final period = settings.arguments as String;
+          return MaterialPageRoute(
+            builder: (context) => MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) =>
+                      CoinDetailsCubit(getIt<CoinDetailsUseCase>())
+                        ..fetchCoinDetails(id),
+                ),
+                BlocProvider(
+                  create: (context) =>
+                      ChartCubit(getIt<MarketChartUseCase>())
+                        ..loadChart(coinId: id, period: period),
+                ),
+              ],
+
+              child: CoinDetailsScreen(id: id),
             ),
           );
         }
