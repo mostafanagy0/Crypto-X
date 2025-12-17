@@ -3,13 +3,47 @@ import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
 import 'package:crypto_x/core/widgets/text_feild_widget.dart';
+import 'package:crypto_x/features/market/domain/entity/coin_details.dart';
 import 'package:crypto_x/features/market/presentation/widgets/currency_dropdown_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class BuyExchangeCard extends StatelessWidget {
-  const BuyExchangeCard({super.key});
+class BuyExchangeCard extends StatefulWidget {
+  const BuyExchangeCard({
+    super.key,
+    required this.coin,
+    required this.onFeeChanged,
+  });
+  final CoinDetails coin;
+  final ValueChanged<double> onFeeChanged;
+
+  @override
+  State<BuyExchangeCard> createState() => _BuyExchangeCardState();
+}
+
+class _BuyExchangeCardState extends State<BuyExchangeCard> {
+  final TextEditingController payController = TextEditingController();
+
+  double receivedAmount = 0;
+  double fee = 0;
+
+  void _calculate(String? value) {
+    final pay = double.tryParse(value!) ?? 0;
+
+    fee = pay * 0.0005; // 0.05%
+    final netPay = pay - fee;
+
+    receivedAmount = netPay / widget.coin.currentPrice;
+    widget.onFeeChanged(fee);
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    payController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +59,10 @@ class BuyExchangeCard extends StatelessWidget {
           _buildRow(
             enable: true,
             label: "You Pay",
-            amount: "\$1,800.00",
-            dropdown: CurrencyDropdown(
-              icon: Icons.attach_money,
-              currencies: const ["USD", "EUR", "GBP"],
-              initialValue: "USD",
-            ),
+            hint: '\$18000',
+            controller: payController,
+            onChanged: _calculate,
+            dropdown: const CurrencyDropdown(currencies: 'USD'),
           ),
 
           verticalSpace(12),
@@ -50,14 +82,12 @@ class BuyExchangeCard extends StatelessWidget {
           _buildRow(
             enable: false,
             label: "You Receive",
-            amount: "0.9876",
+            hint: receivedAmount.toStringAsFixed(6),
             dropdown: CurrencyDropdown(
-              icon: Icons.currency_bitcoin,
-              currencies: const ["ETH", "BTC", "USDT"],
-              initialValue: "ETH",
+              icon: widget.coin.image,
+              currencies: widget.coin.symbol.toUpperCase(),
             ),
           ),
-
           verticalSpace(16),
 
           Row(
@@ -74,7 +104,7 @@ class BuyExchangeCard extends StatelessWidget {
               ),
 
               Text(
-                "1 USD = 0.00078 ETH",
+                "1 USD =${widget.coin.currentPrice} ETH",
                 style: TextStyles.font14MeduimDarkBlueF4BColor.copyWith(
                   color: ColorsManager.grey494Color,
                 ),
@@ -88,9 +118,11 @@ class BuyExchangeCard extends StatelessWidget {
 
   Widget _buildRow({
     required String label,
-    required String amount,
     required Widget dropdown,
     required bool enable,
+    TextEditingController? controller,
+    String? hint,
+    Function(String?)? onChanged,
   }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -108,16 +140,18 @@ class BuyExchangeCard extends StatelessWidget {
             SizedBox(
               width: 140.w,
               child: CustomTextFormField(
+                controller: controller,
                 enabled: enable,
-                hintText: amount,
+                hintText: hint,
+
                 keyboardType: TextInputType.number,
+                onChanged: onChanged,
                 hintStyle: TextStyles.font20BoldPrimaryBlue,
                 borderColor: Colors.transparent,
               ),
             ),
           ],
         ),
-
         dropdown,
       ],
     );

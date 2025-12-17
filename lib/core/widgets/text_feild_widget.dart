@@ -68,7 +68,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       onChanged: (text) {
         widget.onChanged?.call(text);
       },
-
       onEditingComplete: widget.onEditingComplete,
       onTap: widget.onTap,
       obscureText: obscureText,
@@ -76,9 +75,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       textInputAction: widget.action ?? TextInputAction.next,
       focusNode: widget.focusNode,
       autovalidateMode: AutovalidateMode.disabled,
-      style: TextStyles.font16RegularGreyF8FColor.copyWith(
-        color: ColorsManager.blackColor,
-      ),
+      style: TextStyles.font20BoldPrimaryBlue,
       enabled: widget.enabled ?? true,
       textAlignVertical: TextAlignVertical.center,
       decoration: InputDecoration(

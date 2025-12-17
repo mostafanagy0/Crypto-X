@@ -1,9 +1,9 @@
 import 'package:crypto_x/core/helpers/spacing.dart';
+import 'package:crypto_x/core/routing/routes.dart';
 import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
 import 'package:crypto_x/features/market/presentation/cubit/coin_details/coin_details_cubit.dart';
 import 'package:crypto_x/features/market/presentation/cubit/coin_details/coin_details_state.dart';
-import 'package:crypto_x/features/market/presentation/screens/buy_crybto_screen.dart';
 import 'package:crypto_x/features/market/presentation/widgets/chart.dart';
 import 'package:crypto_x/features/market/presentation/widgets/statics_widget.dart';
 import 'package:flutter/material.dart';
@@ -108,11 +108,10 @@ class _CoinDetailsScreenState extends State<CoinDetailsScreen> {
                               backgroundColor: ColorsManager.primaryBlue,
                             ),
                             onPressed: () {
-                              Navigator.push(
+                              Navigator.pushNamed(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) => BuyScreen(),
-                                ),
+                                Routes.buyScreen,
+                                arguments: coinDetails,
                               );
                             },
                             child: Text(

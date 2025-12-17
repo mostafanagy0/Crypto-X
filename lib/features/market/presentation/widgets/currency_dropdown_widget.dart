@@ -1,75 +1,51 @@
-import 'package:crypto_x/core/helpers/spacing.dart';
+import 'dart:math';
+
+import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CurrencyDropdown extends StatefulWidget {
-  final IconData icon;
-  final List<String> currencies;
-  final String initialValue;
+class CurrencyDropdown extends StatelessWidget {
+  final String? icon;
+  final String? currencies;
 
-  const CurrencyDropdown({
-    super.key,
-    required this.icon,
-    required this.currencies,
-    required this.initialValue,
-  });
-
-  @override
-  State<CurrencyDropdown> createState() => _CurrencyDropdownState();
-}
-
-class _CurrencyDropdownState extends State<CurrencyDropdown> {
-  late String selectedCurrency;
-
-  @override
-  void initState() {
-    selectedCurrency = widget.initialValue;
-    super.initState();
-  }
+  const CurrencyDropdown({super.key, this.icon, this.currencies});
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonHideUnderline(
-      child: DropdownButton<String>(
-        borderRadius: BorderRadius.circular(16),
-        dropdownColor: ColorsManager.whiteColor,
-        value: selectedCurrency,
-        icon: const Icon(Icons.keyboard_arrow_down, size: 22),
-        items: widget.currencies
-            .map(
-              (e) => DropdownMenuItem(
-                value: e,
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 16,
-                      backgroundColor: ColorsManager.grey3E4Color,
-                      child: Icon(
-                        widget.icon,
-                        size: 18,
-                        color: ColorsManager.blackColor,
-                      ),
-                    ),
-                    horizontalSpace(10.w),
-                    Text(
-                      e,
-                      style: TextStyles.font16BoldBlackC07Color.copyWith(
-                        color: ColorsManager.primaryBlue,
-                      ),
-                    ),
-                  ],
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      spacing: 5,
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 12),
+          decoration: BoxDecoration(
+            color: ColorsManager.greyEEEColor,
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: icon == null
+              ? Image.asset(AppPngAssets.dollarSign, width: 20.w, height: 20.w)
+              : Image.network(
+                  icon!,
+                  errorBuilder: (_, _, _) =>
+                      Image.asset(AppPngAssets.dollarSign),
                 ),
-              ),
-            )
-            .toList(),
-        onChanged: (value) {
-          setState(() {
-            selectedCurrency = value!;
-          });
-        },
-      ),
+        ),
+        Text(
+          currencies!,
+          style: TextStyles.font16BoldBlackC07Color.copyWith(
+            color: ColorsManager.primaryBlue,
+          ),
+        ),
+        Transform.rotate(
+          angle: -pi / 2,
+          child: Icon(
+            Icons.arrow_back_ios_new,
+            color: ColorsManager.greyCCCColor,
+          ),
+        ),
+      ],
     );
   }
 }

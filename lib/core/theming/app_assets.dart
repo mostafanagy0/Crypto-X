@@ -48,4 +48,5 @@ class AppPngAssets {
   static const String masterCardImage = 'assets/images/mastercard.png';
   static const String visaImage = 'assets/images/visa.png';
   static const String cardImage = 'assets/images/card.png';
+  static const String dollarSign = 'assets/images/market/dollar_sign.png';
 }

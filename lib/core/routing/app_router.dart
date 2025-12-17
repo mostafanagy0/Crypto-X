@@ -12,6 +12,7 @@ import 'package:crypto_x/features/auth/sign_up/presentation/screens/set_face_id_
 import 'package:crypto_x/features/auth/sign_up/presentation/screens/set_finger_print_screen.dart';
 import 'package:crypto_x/features/auth/sign_up/presentation/screens/sign_up_screen.dart';
 import 'package:crypto_x/features/auth/sign_up/presentation/screens/take_face_id_screen.dart';
+import 'package:crypto_x/features/market/domain/entity/coin_details.dart';
 import 'package:crypto_x/features/market/domain/usecases/coin_details_usecase.dart';
 import 'package:crypto_x/features/market/domain/usecases/market_chart_usecase.dart';
 import 'package:crypto_x/features/market/domain/usecases/market_coins_use_case.dart';
@@ -109,7 +110,13 @@ class AppRouter {
           );
         }
       case Routes.buyScreen:
-        return MaterialPageRoute(builder: (_) => const BuyScreen());
+        {
+          final coinDetails = settings.arguments as CoinDetails;
+          return MaterialPageRoute(
+            builder: (_) => BuyScreen(coinDetails: coinDetails),
+          );
+        }
+
       case Routes.coinDetailsScreen:
         {
           final id = settings.arguments as String;

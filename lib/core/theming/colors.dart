@@ -31,4 +31,6 @@ class ColorsManager {
   static const Color blueF4BColor = Color(0xff1E1F4B);
   static const Color chartColor = Color(0xFF1E1F4B);
   static const Color orangE42Color = Color(0xffF67E42);
+  static const Color greyEEEColor = Color(0xffEEEEEE);
+  static const Color greyCCCColor = Color(0xffCCCCCC);
 }
