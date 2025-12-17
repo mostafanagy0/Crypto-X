@@ -11,6 +11,8 @@ class SearchLoaded extends SearchState {
   SearchLoaded(this.results);
 }
 
+class SearchEmpty extends SearchState {}
+
 class SearchError extends SearchState {
   final String message;
   SearchError(this.message);

@@ -40,6 +40,14 @@ class SearchResultsScreen extends StatelessWidget {
             if (state is SearchLoaded) {
               return SearchCoinsListWidgets(coins: state.results);
             }
+            if (state is SearchEmpty) {
+              return Center(
+                child: Text(
+                  '✖️ No results found',
+                  style: TextStyles.font20BoldPrimaryBlue,
+                ),
+              );
+            }
 
             return Center(child: Text('No results'));
           },

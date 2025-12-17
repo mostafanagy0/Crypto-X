@@ -23,10 +23,13 @@ class SearchCubit extends Cubit<SearchState> {
 
       final result = await searchCoinsUseCase(query);
 
-      result.fold(
-        (failure) => emit(SearchError(failure.message)),
-        (coins) => emit(SearchLoaded(coins)),
-      );
+      result.fold((failure) => emit(SearchError(failure.message)), (coins) {
+        if (coins.isEmpty) {
+          emit(SearchEmpty());
+        } else {
+          emit(SearchLoaded(coins));
+        }
+      });
     });
   }
 }
