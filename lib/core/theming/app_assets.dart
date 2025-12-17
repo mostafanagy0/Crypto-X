@@ -43,10 +43,10 @@ class AppPngAssets {
   static const String onBoarding4 = 'assets/images/onboarding/onboarding4.png';
 
   //Market Screen & Coin Details Screen & Buy Screen & payment Screen
-  static const String bitCoinImage = 'assets/images/bit_coin_image.png';
-  static const String payImage = 'assets/images/pay.png';
-  static const String masterCardImage = 'assets/images/mastercard.png';
-  static const String visaImage = 'assets/images/visa.png';
-  static const String cardImage = 'assets/images/card.png';
+  static const String bitCoinImage = 'assets/images/market/bit_coin_image.png';
+  static const String payImage = 'assets/images/market/pay.png';
+  static const String masterCardImage = 'assets/images/market/mastercard.png';
+  static const String visaImage = 'assets/images/market/visa.png';
+  static const String cardImage = 'assets/images/market/card.png';
   static const String dollarSign = 'assets/images/market/dollar_sign.png';
 }

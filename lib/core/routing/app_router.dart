@@ -24,6 +24,7 @@ import 'package:crypto_x/features/market/presentation/cubit/search/search_cubit.
 import 'package:crypto_x/features/market/presentation/screens/buy_crybto_screen.dart';
 import 'package:crypto_x/features/market/presentation/screens/coin_details_screen.dart';
 import 'package:crypto_x/features/market/presentation/screens/market_screen.dart';
+import 'package:crypto_x/features/market/presentation/screens/payment_screen.dart';
 import 'package:crypto_x/features/market/presentation/screens/search_result_screen.dart';
 import 'package:crypto_x/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:crypto_x/features/splash/presentation/screens/splash_screen.dart';
@@ -117,6 +118,8 @@ class AppRouter {
           );
         }
 
+      case Routes.paymentScreen:
+        return MaterialPageRoute(builder: (_) => const PaymentScreen());
       case Routes.coinDetailsScreen:
         {
           final id = settings.arguments as String;

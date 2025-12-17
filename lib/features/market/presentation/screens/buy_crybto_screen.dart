@@ -1,7 +1,9 @@
+import 'package:crypto_x/core/routing/routes.dart';
 import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
 import 'package:crypto_x/features/market/domain/entity/coin_details.dart';
+import 'package:crypto_x/features/market/presentation/screens/payment_screen.dart';
 import 'package:crypto_x/features/market/presentation/widgets/buy_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -115,10 +117,7 @@ class _BuyScreenState extends State<BuyScreen> {
             backgroundColor: WidgetStateProperty.all(ColorsManager.primaryBlue),
           ),
           onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => PaymentScreen()),
-            // );
+            Navigator.pushNamed(context, Routes.paymentScreen);
           },
           child: Text('Continue', style: TextStyles.font18BoldWhiteColor),
         ),

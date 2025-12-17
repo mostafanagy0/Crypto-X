@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:crypto_x/core/helpers/spacing.dart';
 import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:crypto_x/core/theming/colors.dart';
@@ -104,7 +105,7 @@ class _BuyExchangeCardState extends State<BuyExchangeCard> {
               ),
 
               Text(
-                "1 USD =${widget.coin.currentPrice} ETH",
+                "1 USD =${widget.coin.currentPrice} ${widget.coin.symbol.toUpperCase()}",
                 style: TextStyles.font14MeduimDarkBlueF4BColor.copyWith(
                   color: ColorsManager.grey494Color,
                 ),
@@ -152,7 +153,7 @@ class _BuyExchangeCardState extends State<BuyExchangeCard> {
             ),
           ],
         ),
-        dropdown,
+        Expanded(child: dropdown),
       ],
     );
   }

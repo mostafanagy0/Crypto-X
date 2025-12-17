@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
@@ -15,7 +16,8 @@ class CurrencyDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.end,
+
       spacing: 5,
       children: [
         Container(
@@ -32,10 +34,17 @@ class CurrencyDropdown extends StatelessWidget {
                       Image.asset(AppPngAssets.dollarSign),
                 ),
         ),
-        Text(
-          currencies!,
-          style: TextStyles.font16BoldBlackC07Color.copyWith(
-            color: ColorsManager.primaryBlue,
+        Flexible(
+          child: AutoSizeText(
+            currencies!,
+            style: TextStyles.font16BoldBlackC07Color.copyWith(
+              color: ColorsManager.primaryBlue,
+            ),
+            maxLines: 1,
+            minFontSize: 8,
+            softWrap: true,
+            // wrapWords: false,
+            overflow: TextOverflow.visible,
           ),
         ),
         Transform.rotate(
