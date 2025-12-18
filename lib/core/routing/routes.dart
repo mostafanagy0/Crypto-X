@@ -5,6 +5,9 @@ class Routes {
   static const String loginWithFingerPrintScreen =
       '/loginWithFingerPrintScreen';
   static const String loginWithFaceIdScreen = '/loginWithFaceIdScreen';
+  static const String signUpScreen = '/signUpScreen';
+  static const String faceIdScanningCompleteScreen =
+      '/faceIdScanningCompleteScreen';
   static const String verifyAccountScreen = '/verifyAccountScreen';
   static const String homeScreen = '/homeScreen';
   static const String mainView = '/mainView';
