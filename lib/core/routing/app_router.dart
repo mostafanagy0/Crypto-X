@@ -122,8 +122,19 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const PaymentScreen());
       case Routes.coinDetailsScreen:
         {
-          final id = settings.arguments as String;
-          final period = settings.arguments as String;
+          final args = settings.arguments;
+          late final String id;
+          String period = '1d';
+
+          if (args is String) {
+            id = args;
+          } else if (args is Map<String, dynamic>) {
+            id = args['id'] as String;
+            period = args['period'] as String? ?? '1d';
+          } else {
+            return null;
+          }
+
           return MaterialPageRoute(
             builder: (context) => MultiBlocProvider(
               providers: [

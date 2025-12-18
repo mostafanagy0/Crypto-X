@@ -50,22 +50,27 @@ class MarketRemoteDataSource implements BaseMarketRemoteDataSource {
       return CoinDetailsModel.fromJson(response.data);
     } on DioException catch (e) {
       if (e.response != null) {
+        // Rate limit
+        if (e.response!.statusCode == 429) {
+          throw ServerException(
+            errorMessageModel: ErrorMessageModel(
+              statusMessage: 'Too many requests, please try again later',
+            ),
+          );
+        }
+
+        // Other server errors
         throw ServerException(
           errorMessageModel: ErrorMessageModel.fromJson(e.response!.data),
         );
-      } else if (e.response?.statusCode == 429) {
-        throw ServerException(
-          errorMessageModel: ErrorMessageModel(
-            statusMessage: 'Too many requests, please try again later',
-          ),
-        );
-      } else {
-        throw ServerException(
-          errorMessageModel: ErrorMessageModel(
-            statusMessage: 'No Internet Connection',
-          ),
-        );
       }
+
+      // No response → network issue
+      throw ServerException(
+        errorMessageModel: ErrorMessageModel(
+          statusMessage: 'No Internet Connection',
+        ),
+      );
     }
   }
 

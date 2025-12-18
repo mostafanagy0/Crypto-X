@@ -4,6 +4,7 @@ import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
 import 'package:crypto_x/features/market/domain/entity/coin_details.dart';
 import 'package:crypto_x/features/market/presentation/cubit/market_chart/market_chart_cubit.dart';
+import 'package:crypto_x/features/market/presentation/cubit/market_chart/market_chart_state.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,14 +84,32 @@ class _BuildChartContentWidgetState extends State<BuildChartContentWidget> {
                 : LineChart(_buildChartData(widget.spots, widget.period)),
           ),
           verticalSpace(16.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildTimePeriodButton('1d', context),
-              _buildTimePeriodButton('7d', context),
-              _buildTimePeriodButton('1m', context),
-              _buildTimePeriodButton('1y', context),
-            ],
+
+          BlocBuilder<ChartCubit, ChartState>(
+            builder: (context, state) {
+              selectedPeriod = state is ChartInitial
+                  ? state.period
+                  : state is ChartLoading
+                  ? state.period
+                  : state is ChartLoaded
+                  ? state.period
+                  : state is ChartError
+                  ? state.period
+                  : widget.period;
+              if (state is ChartLoaded) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildTimePeriodButton('1d', context, selectedPeriod),
+                    _buildTimePeriodButton('7d', context, selectedPeriod),
+                    _buildTimePeriodButton('1m', context, selectedPeriod),
+                    _buildTimePeriodButton('1y', context, selectedPeriod),
+                  ],
+                );
+              }
+
+              return const SizedBox.shrink();
+            },
           ),
         ],
       ),
@@ -214,15 +233,14 @@ class _BuildChartContentWidgetState extends State<BuildChartContentWidget> {
     return '${date.hour.toString().padLeft(2, '0')}.00';
   }
 
-  Widget _buildTimePeriodButton(String period, BuildContext context) {
+  Widget _buildTimePeriodButton(
+    String period,
+    BuildContext context,
+    String selectedPeriod,
+  ) {
     final isSelected = period == selectedPeriod;
-
     return GestureDetector(
       onTap: () {
-        setState(() {
-          selectedPeriod = period;
-        });
-
         context.read<ChartCubit>().loadChart(
           coinId: widget.coin.id,
           period: period,
