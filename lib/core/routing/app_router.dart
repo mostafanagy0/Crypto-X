@@ -1,6 +1,7 @@
 import 'package:crypto_x/core/routing/routes.dart';
 import 'package:crypto_x/features/auth/cubit/firebase_auth_cubit.dart';
 import 'package:crypto_x/features/auth/data/repos/firebase_auth_repo.dart';
+import 'package:crypto_x/features/auth/login/presentation/cubit/biometric_auth/biometric_auth_cubit.dart';
 import 'package:crypto_x/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:crypto_x/features/auth/login/presentation/screens/login_with_face_id_screen.dart';
 import 'package:crypto_x/features/auth/login/presentation/screens/login_with_finger_print_screen.dart';
@@ -16,6 +17,7 @@ import 'package:crypto_x/features/onboarding/presentation/screens/onboarding_scr
 import 'package:crypto_x/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:local_auth/local_auth.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -61,12 +63,22 @@ class AppRouter {
       case Routes.mainView:
         return MaterialPageRoute(builder: (_) => const MainView());
       case Routes.setFaceIdScreen:
-        return MaterialPageRoute(builder: (_) => const SetFaceIdScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => BiometricAuthCubit(LocalAuthentication()),
+            child: const SetFaceIdScreen(),
+          ),
+        );
 
       case Routes.takeFaceIdScreen:
         return MaterialPageRoute(builder: (_) => const TakeFaceIdScreen());
       case Routes.setFingerPrintScreen:
-        return MaterialPageRoute(builder: (_) => const SetFingerPrintScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => BiometricAuthCubit(LocalAuthentication()),
+            child: const SetFingerPrintScreen(),
+          ),
+        );
 
       default:
         return null;

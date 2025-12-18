@@ -1,4 +1,6 @@
+import 'package:crypto_x/core/helpers/extensions.dart';
 import 'package:crypto_x/core/helpers/spacing.dart';
+import 'package:crypto_x/core/routing/routes.dart';
 import 'package:crypto_x/core/widgets/baby_blue_circle_bg.dart';
 import 'package:crypto_x/core/widgets/custom_button.dart';
 import 'package:crypto_x/features/auth/sign_up/presentation/screens/widgets/scanning_complete_widget.dart';
@@ -24,7 +26,9 @@ class FingerPrintScanningCompleteScreen extends StatelessWidget {
                   verticalSpace(116),
                   CustomButton(
                     text: "Continue",
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pushNamed(Routes.loginScreen);
+                    },
                     width: 342,
                     height: 50,
                   ),

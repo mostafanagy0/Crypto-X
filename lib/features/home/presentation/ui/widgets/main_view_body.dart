@@ -1,4 +1,3 @@
-
 import 'package:crypto_x/features/home/presentation/ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +9,7 @@ class MainViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return IndexedStack(
       index: currentViewIndex,
-      children: const [HomeScreen(),],
+      children: const [HomeScreen()],
     );
   }
 }

@@ -27,7 +27,6 @@ class _LoginTextFieldsState extends State<LoginTextFields> {
     return Column(
       children: [
         CustomTextFormField(
-          
           controller: widget.emailController,
           validator: (value) {
             if (value == null || value.isEmpty) {
