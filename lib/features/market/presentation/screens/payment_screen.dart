@@ -7,9 +7,16 @@ import 'package:crypto_x/features/market/presentation/widgets/payment_logo_widge
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({super.key});
+class PaymentScreen extends StatefulWidget {
+  const PaymentScreen({super.key, required this.amount});
+  final int amount;
 
+  @override
+  State<PaymentScreen> createState() => _PaymentScreenState();
+}
+
+class _PaymentScreenState extends State<PaymentScreen> {
+  bool sendEmailReceipt = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,8 +133,12 @@ class PaymentScreen extends StatelessWidget {
                   Switch.adaptive(
                     activeTrackColor: ColorsManager.primaryBlue,
                     activeThumbColor: ColorsManager.whiteColor,
-                    value: true,
-                    onChanged: (value) {},
+                    value: sendEmailReceipt,
+                    onChanged: (value) {
+                      setState(() {
+                        sendEmailReceipt = value;
+                      });
+                    },
                   ),
                 ],
               ),
@@ -144,8 +155,14 @@ class PaymentScreen extends StatelessWidget {
               EdgeInsets.symmetric(vertical: 15.h),
             ),
           ),
-          onPressed: () {
-            PaymentManager.makePayment(20, 'USD');
+          onPressed: () async {
+            try {
+              await PaymentManager.makePayment(widget.amount, 'USD');
+            } catch (e) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Payment failed: ${e.toString()}')),
+              );
+            }
           },
           child: Text('Buy', style: TextStyles.font18BoldWhiteColor),
         ),

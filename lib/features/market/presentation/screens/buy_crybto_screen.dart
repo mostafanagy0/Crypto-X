@@ -3,7 +3,6 @@ import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
 import 'package:crypto_x/features/market/domain/entity/coin_details.dart';
-import 'package:crypto_x/features/market/presentation/screens/payment_screen.dart';
 import 'package:crypto_x/features/market/presentation/widgets/buy_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,6 +18,7 @@ class BuyScreen extends StatefulWidget {
 
 class _BuyScreenState extends State<BuyScreen> {
   double fee = 0;
+  int payAmount = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +36,11 @@ class _BuyScreenState extends State<BuyScreen> {
           children: [
             BuyExchangeCard(
               coin: widget.coinDetails,
+              payAmountChanged: (value) {
+                setState(() {
+                  payAmount = value;
+                });
+              },
               onFeeChanged: (value) {
                 setState(() {
                   fee = value;
@@ -117,7 +122,11 @@ class _BuyScreenState extends State<BuyScreen> {
             backgroundColor: WidgetStateProperty.all(ColorsManager.primaryBlue),
           ),
           onPressed: () {
-            Navigator.pushNamed(context, Routes.paymentScreen);
+            Navigator.pushNamed(
+              context,
+              Routes.paymentScreen,
+              arguments: payAmount,
+            );
           },
           child: Text('Continue', style: TextStyles.font18BoldWhiteColor),
         ),

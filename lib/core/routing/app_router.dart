@@ -119,7 +119,13 @@ class AppRouter {
         }
 
       case Routes.paymentScreen:
-        return MaterialPageRoute(builder: (_) => const PaymentScreen());
+        {
+          final amount = settings.arguments as int;
+          return MaterialPageRoute(
+            builder: (_) => PaymentScreen(amount: amount),
+          );
+        }
+
       case Routes.coinDetailsScreen:
         {
           final args = settings.arguments;

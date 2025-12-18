@@ -14,9 +14,11 @@ class BuyExchangeCard extends StatefulWidget {
     super.key,
     required this.coin,
     required this.onFeeChanged,
+    required this.payAmountChanged,
   });
   final CoinDetails coin;
   final ValueChanged<double> onFeeChanged;
+  final ValueChanged<int> payAmountChanged;
 
   @override
   State<BuyExchangeCard> createState() => _BuyExchangeCardState();
@@ -36,6 +38,8 @@ class _BuyExchangeCardState extends State<BuyExchangeCard> {
 
     receivedAmount = netPay / widget.coin.currentPrice;
     widget.onFeeChanged(fee);
+
+    widget.payAmountChanged(pay.toInt());
     setState(() {});
   }
 
