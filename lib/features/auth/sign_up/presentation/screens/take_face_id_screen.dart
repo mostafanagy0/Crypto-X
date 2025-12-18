@@ -1,6 +1,4 @@
-import 'package:crypto_x/core/helpers/extensions.dart';
 import 'package:crypto_x/core/helpers/spacing.dart';
-import 'package:crypto_x/core/routing/routes.dart';
 import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
@@ -35,18 +33,14 @@ class TakeFaceIdScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 verticalSpace(164),
-                GestureDetector(
-                  onTap: () =>
-                      context.pushNamed(Routes.faceIdScanningCompleteScreen),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(28.r),
-                    child: SizedBox(
-                      width: 155.w,
-                      height: 158.h,
-                      child: SvgPicture.asset(
-                        AppSvgAssets.faceIcon,
-                        fit: BoxFit.cover,
-                      ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(28.r),
+                  child: SizedBox(
+                    width: 155.w,
+                    height: 158.h,
+                    child: SvgPicture.asset(
+                      AppSvgAssets.faceIcon,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

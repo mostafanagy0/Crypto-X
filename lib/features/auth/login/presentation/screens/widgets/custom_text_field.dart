@@ -41,11 +41,7 @@ class CustomTextFormField extends StatelessWidget {
           minWidth: 40,
           minHeight: 40,
         ),
-        contentPadding: EdgeInsets.only(
-          top: 8.h,
-          bottom: 8.h,
-          left: 12.w,
-        ),
+        contentPadding: EdgeInsets.only(top: 8.h, bottom: 8.h, left: 12.w),
         border: _buildBorder(),
         focusedBorder: _buildBorder(),
         enabledBorder: _buildBorder(),
@@ -54,6 +50,7 @@ class CustomTextFormField extends StatelessWidget {
       ),
     );
   }
+
   OutlineInputBorder _buildBorder() {
     return OutlineInputBorder(
       borderSide: BorderSide(color: ColorsManager.kPrimaryColor),

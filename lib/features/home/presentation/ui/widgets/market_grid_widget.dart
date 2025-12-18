@@ -1,12 +1,9 @@
-
 import 'package:crypto_x/core/helpers/spacing.dart';
 import 'package:crypto_x/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 
 class MarketGridWidget extends StatelessWidget {
-  const MarketGridWidget({
-    super.key,
-  });
+  const MarketGridWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +27,7 @@ class MarketGridWidget extends StatelessWidget {
             {'title': 'Bitcoin Dom', 'value': '42.5%'},
             {'title': 'Altcoin Dom', 'value': '57.5%'},
           ];
-    
+
           return Card(
             elevation: 1,
             color: Colors.white,
@@ -41,7 +38,7 @@ class MarketGridWidget extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-    
+
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 10),

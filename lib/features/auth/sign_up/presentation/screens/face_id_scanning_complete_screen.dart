@@ -1,4 +1,6 @@
+import 'package:crypto_x/core/helpers/extensions.dart';
 import 'package:crypto_x/core/helpers/spacing.dart';
+import 'package:crypto_x/core/routing/routes.dart';
 import 'package:crypto_x/core/theming/app_assets.dart';
 import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
@@ -50,7 +52,9 @@ class FaceIdScanningCompleteScreen extends StatelessWidget {
                   backgroundColor: ColorsManager.kWhiteColor,
                   text: "Continue",
                   textColor: ColorsManager.kPrimaryColor,
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushReplacementNamed(Routes.loginScreen);
+                  },
                   width: 342,
                   height: 50,
                 ),
