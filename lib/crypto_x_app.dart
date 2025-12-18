@@ -20,13 +20,15 @@ class Crypto_X_App extends StatelessWidget {
           theme: ThemeData(
             textSelectionTheme: TextSelectionThemeData(
               cursorColor: ColorsManager.kPrimaryColor,
-              selectionColor: ColorsManager.kPrimaryColor.withValues(alpha: 0.4),
+              selectionColor: ColorsManager.kPrimaryColor.withValues(
+                alpha: 0.4,
+              ),
               selectionHandleColor: ColorsManager.kPrimaryColor,
             ),
             fontFamily: "Lato",
             scaffoldBackgroundColor: ColorsManager.kBackgroundColor,
           ),
-          initialRoute: Routes.splashScreen,
+          initialRoute: Routes.marketScreen,
           onGenerateRoute: appRouter.generateRoute,
         );
       },

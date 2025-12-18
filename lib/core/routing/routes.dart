@@ -13,4 +13,9 @@ class Routes {
   static const String takeFaceIdScreen = '/takeFaceIdScreen';
   static const String faceIdScanningCompleteScreen =
       '/faceIdScanningCompleteScreen';
+  static const String marketScreen = '/marketScreen';
+  static const String coinDetailsScreen = '/coinDetailsScreen';
+  static const String searchResultsScreen = '/searchResultsScreen';
+  static const String buyScreen = '/buyScreen';
+  static const String paymentScreen = '/paymentScreen';
 }

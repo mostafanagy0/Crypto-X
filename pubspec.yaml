@@ -36,7 +36,7 @@ dependencies:
   # Code Generator (Mainly used with cubit & retrofit)
   freezed_annotation: ^3.1.0
   # Dependency Injection
-  get_it: ^8.0.2
+  get_it: ^9.2.0
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
   json_serializable: ^6.11.2
   json_annotation: ^4.9.0
@@ -59,6 +59,13 @@ dependencies:
   firebase_core: ^4.2.1
   #Flutter plugin for Firebase Auth, enabling authentication using passwords, phone numbers and identity providers like Google, Facebook and Twitter.
   firebase_auth: ^6.1.2
+  equatable: ^2.0.7
+  google_fonts: ^6.3.3
+  dartz: ^0.10.1
+  auto_size_text: ^3.0.0
+  fl_chart: ^1.1.1
+  flutter_stripe: ^12.1.1
+  flutter_dotenv: ^6.0.0
 
 dev_dependencies:
   flutter_lints: ^6.0.0
@@ -83,6 +90,9 @@ flutter:
     - assets/images/splash/
     - assets/images/onboarding/
     - assets/images/auth/
+    - assets/icons/
+    - assets/images/market/
+    - .env
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see

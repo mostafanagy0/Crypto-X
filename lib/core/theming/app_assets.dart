@@ -19,6 +19,15 @@ class AppSvgAssets {
   static const String personIcon = 'assets/images/auth/person.svg';
   static const String phoneIcon = 'assets/images/auth/phone.svg';
   static const String faceIdDone = 'assets/images/auth/face_id_done.svg';
+
+  //Market Screen & Coin Details Screen & Buy Screen & payment Screen
+  static const String arrowUpIcon = 'assets/icons/arrow_up_right.svg';
+  static const String arrowDownIcon = 'assets/icons/arrow_down_right.svg';
+  static const String search = 'assets/icons/search.svg';
+  static const String settings = 'assets/icons/setting.svg';
+  static const String swap = 'assets/icons/Swap.svg';
+  static const String dollar = 'assets/icons/dollar-circle.svg';
+  static const String arrowDown = 'assets/icons/arrow-down.svg';
 }
 
 class AppPngAssets {
@@ -32,4 +41,12 @@ class AppPngAssets {
   static const String onBoarding2 = 'assets/images/onboarding/onboarding2.png';
   static const String onBoarding3 = 'assets/images/onboarding/onboarding3.png';
   static const String onBoarding4 = 'assets/images/onboarding/onboarding4.png';
+
+  //Market Screen & Coin Details Screen & Buy Screen & payment Screen
+  static const String bitCoinImage = 'assets/images/market/bit_coin_image.png';
+  static const String payImage = 'assets/images/market/pay.png';
+  static const String masterCardImage = 'assets/images/market/mastercard.png';
+  static const String visaImage = 'assets/images/market/visa.png';
+  static const String cardImage = 'assets/images/market/card.png';
+  static const String dollarSign = 'assets/images/market/dollar_sign.png';
 }
