@@ -73,6 +73,7 @@ flutter:
     - assets/images/splash/
     - assets/images/onboarding/
     - assets/images/auth/
+    - assets/images/home/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see

@@ -1,4 +1,6 @@
+import 'package:crypto_x/core/helpers/extensions.dart';
 import 'package:crypto_x/core/helpers/spacing.dart';
+import 'package:crypto_x/core/routing/routes.dart';
 import 'package:crypto_x/core/theming/colors.dart';
 import 'package:crypto_x/core/theming/styles.dart';
 import 'package:crypto_x/core/widgets/custom_button.dart';
@@ -50,7 +52,12 @@ class LoginScreen extends StatelessWidget {
                           ],
                         ),
                         verticalSpace(30),
-                        CustomButton(text: "Login", onPressed: () {}),
+                        CustomButton(
+                          text: "Login",
+                          onPressed: () {
+                            context.pushNamed(Routes.mainView);
+                          },
+                        ),
                         verticalSpace(37),
                         OrLoginWithDivider(),
                         verticalSpace(15),

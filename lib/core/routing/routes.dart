@@ -7,4 +7,5 @@ class Routes {
   static const String loginWithFaceIdScreen = '/loginWithFaceIdScreen';
   static const String verifyAccountScreen = '/verifyAccountScreen';
   static const String homeScreen = '/homeScreen';
+  static const String mainView = '/mainView';
 }
