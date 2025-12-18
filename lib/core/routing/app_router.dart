@@ -3,6 +3,9 @@ import 'package:crypto_x/features/auth/login/presentation/screens/login_screen.d
 import 'package:crypto_x/features/auth/login/presentation/screens/login_with_face_id_screen.dart';
 import 'package:crypto_x/features/auth/login/presentation/screens/login_with_finger_print_screen.dart';
 import 'package:crypto_x/features/auth/login/presentation/screens/verify_account_screen.dart';
+import 'package:crypto_x/features/auth/sign_up/presentation/screens/set_face_id_screen.dart';
+import 'package:crypto_x/features/auth/sign_up/presentation/screens/set_finger_print_screen.dart';
+import 'package:crypto_x/features/auth/sign_up/presentation/screens/take_face_id_screen.dart';
 import 'package:crypto_x/features/home/presentation/ui/screens/home_screen.dart';
 import 'package:crypto_x/features/home/presentation/ui/screens/main_view.dart';
 import 'package:crypto_x/features/onboarding/presentation/screens/onboarding_screen.dart';
@@ -26,7 +29,7 @@ class AppRouter {
         );
 
       case Routes.loginWithFaceIdScreen:
-        return MaterialPageRoute(builder: (_) => const LogiWithFaceIdScreen());
+        return MaterialPageRoute(builder: (_) => LoginWithFaceIdScreen());
 
       case Routes.verifyAccountScreen:
         return MaterialPageRoute(builder: (_) => const VerifyAccountScreen());
@@ -34,6 +37,13 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.mainView:
         return MaterialPageRoute(builder: (_) => const MainView());
+      case Routes.setFaceIdScreen:
+        return MaterialPageRoute(builder: (_) => const SetFaceIdScreen());
+
+      case Routes.takeFaceIdScreen:
+        return MaterialPageRoute(builder: (_) => const TakeFaceIdScreen());
+      case Routes.setFingerPrintScreen:
+        return MaterialPageRoute(builder: (_) => const SetFingerPrintScreen());
 
       default:
         return null;

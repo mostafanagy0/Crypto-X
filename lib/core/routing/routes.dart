@@ -8,4 +8,7 @@ class Routes {
   static const String verifyAccountScreen = '/verifyAccountScreen';
   static const String homeScreen = '/homeScreen';
   static const String mainView = '/mainView';
+  static const String setFaceIdScreen = '/setFaceIdScreen';
+  static const String takeFaceIdScreen = '/takeFaceIdScreen';
+  static const String setFingerPrintScreen = '/setFingerPrintScreen';
 }
