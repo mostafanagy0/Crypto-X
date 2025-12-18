@@ -25,9 +25,20 @@ class TextStyles {
     color: ColorsManager.kPrimaryColor,
     fontFamily: 'Poppins',
   );
+  static TextStyle font20medium = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.kBlackColor,
+    fontFamily: 'Lato',
+  );
   static TextStyle font18Bold = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font16Bold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.kPrimaryColor,
   );
   static TextStyle font18Medium = TextStyle(
     fontSize: 18.sp,
@@ -53,5 +64,10 @@ class TextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.semiBold,
     color: ColorsManager.kBlueGrayColor,
+  );
+  static TextStyle font12regular = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: Colors.blueAccent,
   );
 }
